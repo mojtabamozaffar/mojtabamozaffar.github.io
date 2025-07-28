@@ -12,21 +12,21 @@ taxonomies:
 
 menu:
     main:
-        - name: Books
-          url: books/
+        - name: Research
+          url: research/
           weight: 5 
+        - name: Robotics
+          url: robotics/
+          weight: 2
         - name: Papers
           url: papers/
-          weight: 2
-        - name: Courses
-          url: courses/
           weight: 3
-        - name: Data
-          url: data/
+        - name: Hobbies
+          url: hobbies/
           weight: 4 
 
 params:
-    description: "Welcome to my homepage! I am roboticist and scientist with expertise in computer vision, and policy learning."
+    description: "Welcome to my homepage! I am a senior applied scientist at Amazon Robotics and an ex-research professor at Northwestern Univeristy. My research interests includes computational physics, robotics, computer vision, and policy learning."
     author: Mojtaba Mozaffar
     DateFormat: "January 2006"
     defaultTheme: light
@@ -40,7 +40,7 @@ params:
     ShowBreadCrumbs: false
     ShowCodeCopyButtons: true
     ShowAllPagesInArchive: false
-    MainSections: ["books","courses","papers","data"]
+    MainSections: ["research","robotics","papers","hobbies"]
     ShowToc: false
     disableScrollToTop: true
     TocOpen: true
@@ -51,49 +51,31 @@ params:
     profileMode:
           enabled: true
           title: Mojtaba Mozaffar
-          subtitle: "Welcome to my homepage! I am roboticist and scientist with expertise in computer vision, and policy learning."
+          subtitle: "Welcome to my homepage! I am a senior applied scientist at Amazon Robotics and an ex-research professor at Northwestern Univeristy. My research interests includes computational physics, robotics, computer vision, and policy learning."
           imageUrl: "picture.jpeg"
           imageWidth: 160
           imageHeight: 160
           buttons:
+            - name: Research
+              url: research/
+            - name: Robotics
+              url: robotics/
             - name: Papers
               url: papers/
-            - name: Data
-              url: data/
-            - name: Books
-              url: books/
-            - name: Courses
-              url: courses/
-            # - name: Tags
-            #   url: tags/
-            # - name: Archive
-            #   url: archive/
-            # - name: Blog
-            #   url: https://en.wikipedia.org/wiki/Moritz-Maria_von_Igelfeld_(character)
+            - name: Hobbies
+              url: hobbies/
 
     socialIcons:
-        - name: CV
-          url: cv.pdf
+        - name: Resume
+          url: Resume_Mojtaba_Mozaffar.pdf
         - name: Email
           url: mojtabamozaffar@gmail.com
-        - name: Zoom
-          url: https://www.zoom.us/my/igelfeld
-        - name: Location
-          url: location/
-        # - name: Office Hours
-        #   url: officehours/
+        - name: LinkedIn
+          url: https://www.linkedin.com/in/mojtaba-mozaffar/
         - name: Google Scholar
           url: https://scholar.google.com/citations?user=94sfs8QAAAAJ&hl=en
         - name: GitHub
           url: https://github.com/mojtabamozaffar
-        # - name: Substack
-        #   url: https://pmichaillat.substack.com
-        # - name: YouTube
-        #   url: https://www.youtube.com/@pmichaillat
-        # - name: Twitter
-        #   url: https://x.com/pmichaillat
-        # - name: Bluesky
-        #   url: https://bsky.app/profile/pmichaillat.bsky.social
 
     assets:
         disableScrollBarStyle: true
