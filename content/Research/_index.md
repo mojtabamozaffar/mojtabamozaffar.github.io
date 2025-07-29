@@ -1,4 +1,5 @@
 ---
-title: "Research"
-description: "Research directions"
+title: Research
+author: ["Mojtaba Mozaffar"]
+description: Research directions
 ---

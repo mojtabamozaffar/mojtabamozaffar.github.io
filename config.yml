@@ -18,15 +18,15 @@ menu:
         - name: Robotics
           url: robotics/
           weight: 2
-        - name: Papers
-          url: papers/
+        - name: Publications
+          url: publications/
           weight: 3
         - name: Hobbies
           url: hobbies/
           weight: 4 
 
 params:
-    description: "Welcome to my homepage! I am a senior applied scientist at Amazon Robotics and an ex-research professor at Northwestern Univeristy. My research interests includes computational physics, robotics, computer vision, and policy learning."
+    description: Welcome to my homepage! I am a Senior Applied Scientist at Amazon Robotics and a former Research Assistant Professor at Northwestern University. Over the past decade, I have worked on a range of exciting problems in robotics, computer vision, policy learning, and physics-informed AI. Feel free to reach out — I'm always happy to chat with like-minded people.
     author: Mojtaba Mozaffar
     DateFormat: "January 2006"
     defaultTheme: light
@@ -40,7 +40,7 @@ params:
     ShowBreadCrumbs: false
     ShowCodeCopyButtons: true
     ShowAllPagesInArchive: false
-    MainSections: ["research","robotics","papers","hobbies"]
+    MainSections: ["research","robotics","publications","hobbies"]
     ShowToc: false
     disableScrollToTop: true
     TocOpen: true
@@ -51,7 +51,7 @@ params:
     profileMode:
           enabled: true
           title: Mojtaba Mozaffar
-          subtitle: "Welcome to my homepage! I am a senior applied scientist at Amazon Robotics and an ex-research professor at Northwestern Univeristy. My research interests includes computational physics, robotics, computer vision, and policy learning."
+          subtitle: Welcome to my homepage! I am a Senior Applied Scientist at Amazon Robotics and a former Research Assistant Professor at Northwestern University. Over the past decade, I have worked on a range of exciting problems in robotics, computer vision, policy learning, and physics-informed AI. Feel free to reach out — I'm always happy to chat with like-minded people.
           imageUrl: "picture.jpeg"
           imageWidth: 160
           imageHeight: 160
@@ -60,14 +60,12 @@ params:
               url: research/
             - name: Robotics
               url: robotics/
-            - name: Papers
-              url: papers/
+            - name: Publications
+              url: publications/
             - name: Hobbies
               url: hobbies/
 
     socialIcons:
-        - name: Resume
-          url: Resume_Mojtaba_Mozaffar.pdf
         - name: Email
           url: mojtabamozaffar@gmail.com
         - name: LinkedIn
