@@ -21,9 +21,6 @@ menu:
         - name: Publications
           url: publications/
           weight: 3
-        - name: Hobbies
-          url: hobbies/
-          weight: 4 
 
 params:
     description: Welcome to my homepage! I am a Senior Applied Scientist at Amazon Robotics and a former Research Assistant Professor at Northwestern University. Over the past decade, I have worked on a range of exciting problems in robotics, computer vision, policy learning, and physics-informed AI. Feel free to reach out — I'm always happy to chat with like-minded people.
@@ -40,7 +37,7 @@ params:
     ShowBreadCrumbs: false
     ShowCodeCopyButtons: true
     ShowAllPagesInArchive: false
-    MainSections: ["research","robotics","publications","hobbies"]
+    MainSections: ["research","robotics","publications"]
     ShowToc: false
     disableScrollToTop: true
     TocOpen: true
@@ -62,12 +59,10 @@ params:
               url: robotics/
             - name: Publications
               url: publications/
-            - name: Hobbies
-              url: hobbies/
 
     socialIcons:
         - name: Email
-          url: mojtabamozaffar@gmail.com
+          url: mailto:mojtabamozaffar@gmail.com
         - name: LinkedIn
           url: https://www.linkedin.com/in/mojtaba-mozaffar/
         - name: Google Scholar
