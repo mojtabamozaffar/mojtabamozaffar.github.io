@@ -12,14 +12,11 @@ taxonomies:
 
 menu:
     main:
-        - name: Research
-          url: research/
+        - name: Blog
+          url: blog/
           weight: 5 
-        - name: Robotics
-          url: robotics/
-          weight: 2
-        - name: Publications
-          url: publications/
+        - name: Papers
+          url: papers/
           weight: 3
 
 params:
@@ -37,7 +34,7 @@ params:
     ShowBreadCrumbs: false
     ShowCodeCopyButtons: true
     ShowAllPagesInArchive: false
-    MainSections: ["research","robotics","publications"]
+    MainSections: ["blog","papaers"]
     ShowToc: false
     disableScrollToTop: true
     TocOpen: true
@@ -53,12 +50,10 @@ params:
           imageWidth: 160
           imageHeight: 160
           buttons:
-            - name: Research
-              url: research/
-            - name: Robotics
-              url: robotics/
-            - name: Publications
-              url: publications/
+            - name: Blog
+              url: blog/
+            - name: Papers
+              url: papers/
 
     socialIcons:
         - name: Email

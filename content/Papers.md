@@ -1,6 +1,6 @@
 ---
-title: "Publications"
-url: "/publications"
+title: "Papers"
+url: "/papers"
 ---
 
 1. **Deep learning predicts path-dependent plasticity**  
