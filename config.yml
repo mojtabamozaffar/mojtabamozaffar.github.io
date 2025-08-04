@@ -10,15 +10,6 @@ pagination:
 taxonomies:
     tag: tags
 
-menu:
-    main:
-        - name: Blog
-          url: blog/
-          weight: 5 
-        - name: Papers
-          url: papers/
-          weight: 3
-
 params:
     description: Welcome to my homepage! I am a Senior Applied Scientist at Amazon Robotics and a former Research Assistant Professor at Northwestern University. Over the past decade, I have worked on a range of exciting problems in robotics, computer vision, policy learning, and physics-informed AI. Feel free to reach out — I'm always happy to chat with like-minded people.
     author: Mojtaba Mozaffar
@@ -34,7 +25,6 @@ params:
     ShowBreadCrumbs: false
     ShowCodeCopyButtons: true
     ShowAllPagesInArchive: false
-    MainSections: ["blog","papaers"]
     ShowToc: false
     disableScrollToTop: true
     TocOpen: true
@@ -49,11 +39,6 @@ params:
           imageUrl: "picture.jpeg"
           imageWidth: 160
           imageHeight: 160
-          buttons:
-            - name: Blog
-              url: blog/
-            - name: Papers
-              url: papers/
 
     socialIcons:
         - name: Email
