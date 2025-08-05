@@ -1,7 +1,7 @@
 ---
 title: "Self-Balancing Cube: Design, Build and Control Strategies"
 tags: ["robotics", "control systems", "3D printing", "embedded electronics", "reinforcement learning"]
-date: 2025-01-04
+date: 2025-02-04
 description: "A deep dive into the design, electronics, and control strategies of my self-balancing cube project."
 summary: "I engineered a self-balancing cube—mechanically, electronically, and in software—exploring LQR, quaternion-based nonlinear control, and reinforcement learning."
 cover:

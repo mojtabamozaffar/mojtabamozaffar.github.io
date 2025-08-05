@@ -1,5 +1,5 @@
 ---
-title: "Differentiable Simulation for Robotics and Computational Physics"
+title: "Differentiable Simulation for Process Design in Robotics and Computational Physics"
 tags: ["Differentiable simulation", "robotics", "contact-rich manipulation", "computational physics"]
 date: 2023-01-05
 description: ""

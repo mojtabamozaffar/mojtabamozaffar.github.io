@@ -1,5 +1,5 @@
 ---
-title: "Physics-aware AI in Robotics, Design, and Discovery"
+title: "Physics-Aware AI in Design, Discovery, and Control"
 tags: ["mechanistic AI", "physics-aware AI", "design", "robotics"]
 date: 2022-04-05
 summary: "In today's rapidly evolving technological landscape, Artificial Intelligence (AI) is transforming countless fields. Yet, purely data-driven AI often faces significant hurdles, particularly in complex engineering domains like robotics and design and manufacturing. This is where Physics-aware AI steps in, combining the raw power of AI methods with mechanism-driven principles and engineering insights. This integration enhances data efficiency, generalizability, and explainability, addressing critical shortcomings of traditional AI, such as limited generalization to unseen samples and lack of interpretability."

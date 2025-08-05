@@ -1,7 +1,7 @@
 ---
 title: "Controlling Crazyflie Mico-Dones via Radio in Android"
 tags: ["drones", "Crazyflie", "Android", "robotics", "RF communication"]
-date: 2025-03-01
+date: 2024-08-01
 description: "An introduction to the Crazyflie nano-quadcopter platform and my work developing an Android application to control it over a 2.4 GHz radio link."
 summary: "I have been working with Crazyflie drones which are tiny open-source drones from Bitcraze. Here I describe my experience with it and how I built an Android app that sends real-time commands over radio, enabling intuitive remote flight control and telemetry monitoring."
 cover:

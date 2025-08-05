@@ -1,7 +1,7 @@
 ---
-title: "Reinforcement Learning for Long-Term Design Tasks"
+title: "Reinforcement Learning for Long-Horizon Design Tasks"
 tags: ["Reinforcement learning", "robotics", "design"]
-date: 2022-09-20
+date: 2024-09-20
 summary: "Reinforcement learning (RL) is revolutionizing robotics and planning by enabling systems to learn complex behaviors through trial-and-error interactions with their environments. A fascinating example that I explored was training an RL agent to solve high-dimensinal time-series toolpath planning problem to optimize material properties in additive manufacturing processes."
 cover:
     image: "rl.png"
@@ -20,7 +20,7 @@ Metal-based Additive Manufacturing (AM) offers unique capabilities for building 
 
 ### RL to the Rescue: A Novel Approach to Toolpath Design
 
-The sources propose a novel solution: modeling toolpath design as a Reinforcement Learning problem. In this setup, an agent learns to design optimal toolpaths by dynamically interacting with a virtual additive manufacturing environment and collecting data. The agent determines actions at each time step, which influences the environment and generates reward feedback. The agent's goal is to maximize the long-term rewards it receives by iteratively improving its strategies. This approach essentially treats the toolpath generation as a planning problem, where the agent autonomously learns the most effective sequence of actions.
+The sources propose a novel solution: modeling toolpath design as a Reinforcement Learning problem. In this setup, an agent learns to design optimal toolpaths by dynamically interacting with a virtual additive manufacturing environment and collecting data. The agent determines actions at each time step, which influences the environment and generates reward feedback. The agent's goal is to maximize the long-horizon rewards it receives by iteratively improving its strategies. This approach essentially treats the toolpath generation as a planning problem, where the agent autonomously learns the most effective sequence of actions.
 
 ### Different Flavors of RL and Their Relevance
 

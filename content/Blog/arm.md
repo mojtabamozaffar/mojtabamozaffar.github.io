@@ -1,9 +1,9 @@
 ---
 title: "Building and Teleoperating a DIY 6-DOF Robot Arm"
 tags: ["robotics", "teleoperation", "DIY", "3D printing", "embedded systems", "human-robot interaction"]
-date: 2025-02-20
+date: 2025-04-20
 description: "A deep dive into replicating the Arctos 6-DOF arm from scratch and crafting a scaled potentiometer-based master arm for real-time teleoperation."
-summary: "I built the open-source Arctos 6-DOF robot arm—3D-printing every link, wiring up an Arduino-based control stack, and adding a miniature potentiometer ‘master’ to drive the full-scale arm with low latency."
+summary: "I built the open-source Arctos 6-DOF robot arm—3D-printing every link, wiring up an Arduino-based control stack, and adding a miniature potentiometer ‘master’ to drive the full-scale arm with low latency. It was quite an experience and I want to share it here."
 cover:
     image: "arm.jpg"
     alt: "Manipulation at Amazon Robotics"
@@ -13,85 +13,39 @@ cover:
 <img src="/arm.jpg" width="800">
 
 
-From the first time I watched a six-axis arm gracefully pick and place objects on YouTube, I was hooked. When I discovered [Arctos Robotics](https://arctosrobotics.com)’ open-source 6-DOF design, I knew I had to build my own—and then take it further by designing a handheld “master” interface. Here’s the story of how I turned a pile of PLA parts, steppers, and electronics into a teleoperated desktop arm that feels like an extension of my own body.
+These days I work quite often with industrial robot arms and really wanted to give it try to build one from scratch myself. I didn quite a bit of research about what are existing open-source project and found some very interesting ones. From [MOTUS](https://www.instructables.com/MOTUS-Open-Source-3D-Printed-Robotic-Arm/) to [BCN3D](https://www.thingiverse.com/thing:1693444), and [AR4](https://www.anninrobotics.com/), they all seem fantastic projects, but I ended up going with [Arctos](https://arctosrobotics.com) because of a combination of cost, learning opportunity of printing almost all of it including gearboxes, and aesthetics. While I mostly re-created the design that Artcos community created, I found the experience very valuable and was able to add a few tweaks and featurs to it at the end.
 
-## 1. The Blueprint: Mechanical Design & 3D Printing
 
-- **Link Geometry & Reach**  
-  Arctos’s six revolute joints give ~600 mm of workspace—enough to reach across a standard 24″ desk—and a rated ~1 kg payload on v2. I tweaked the CAD slightly to reinforce the wrist flanges, anticipating higher dynamic loads during teleoperation.
+## Mechanical Design,  3D Printing, and Electronics
 
-- **Print Settings & Filament**  
-  I printed ~40 unique STL parts on a Prusa i3 MK3S:  
-  - **Layer height:** 0.28 mm  
-  - **Nozzle:** 0.4 mm  
-  - **Infill:** 30 % (rectilinear)  
-  - **Material:** PLA+ for added toughness  
-  Over ~60 hours of print time, I used ~3.5 kg of filament, carefully labeling each piece to avoid mid-assembly confusion.
+Arctos’s six revolute joints give ~600 mm of workspace—enough to reach across a standard 24″ desk—and a rated ~1 kg payload. I used ASA for functional parts that required strength like gearbox parts and PLA for the rest. All non-printing parts are standard and can be bought according to the project [BOM](https://docs.google.com/spreadsheets/d/1vieItTpYDkgyDhjjvzrczWXugibwgaBKGWtBCbKjsf0/edit?gid=385089357#gid=385089357). I opted for the open-loop variation of the design, but love to upgrade it to the close-loop at some point.
 
-- **Bearings & Belt Drives**  
-  Every joint spins on ABEC-5 bearings. GT2 belts and 20-tooth pulleys route around tensioners I designed in Fusion 360—borrowing Arctos’s cycloidal gearbox modules on the shoulder and elbow for that extra torque punch in tight spaces.  
+I mirrored the official Arctos wiring harness: motors, drivers, endstops, fans with:
+  - Core: Arduino Mega 2560  
+  - Motor Drivers: TMC2209 (silent, micro-step to 256) on a CNC Shield V3  
+  - Power: 24 V, 6A SLA supply  
+  - Homing: Magnetic Hall sensor at each axis
+  - Communication: A bluetooth module to receive commmands
 
-> **Pro tip:** 3D-printed belt tensioners wear out fast. I printed backups and swapped them out with hardened M3 brass inserts for longevity.
+## Software
 
-## 2. Brains & Brawn: Electronics and Firmware
+<img src="/arm_2.jpg" width="800">
 
-- **Controller Stack**  
-  - **Core:** Arduino Mega 2560  
-  - **Motor Drivers:** TMC2209 (silent, micro-step to 256) on a CNC Shield V3  
-  - **Power:** 24 V, 6 A SLA supply  
-  - **Homing:** Mechanical limit switches at each axis  
-
-  I mirrored the official Arctos wiring harness: motors, drivers, endstops, fans, and even an optional CAN bus for closed-loop encoder feedback in future iterations.
-
-- **GRBL-6Axis Firmware**  
-  I forked the open-source Arctos GRBL extension, adding:  
-  - **Smooth jerk-limited acceleration** for human-friendly responsiveness  
-  - **Quaternion-based wrist alignment** routines to avoid gimbal lock  
-  - **Real-time diagnostics** streamed over USB for easy tuning  
-
-Once flashed, I spent an afternoon calibrating step-per-mm, current limits, and velocity profiles, logging each change to a shared spreadsheet for reproducibility.
-
-## 3. Build Chronicles: From Chaos to Calibration
-
-> “It’s like building IKEA furniture with live electricity,” my friend joked as I wrestled the shoulder joint into alignment.  
-
-- **Part Sorting Nightmare**  
-  When dozens of identical M3 screws spilled across my workbench, I learned the power of sorting trays—each labeled for bearings, pulleys, and fasteners.
-
-- **Early Smoke Test**  
-  My first power-on sent the base spinning uncontrollably—turned out I had swapped two motor driver jumpers. A quick swap and a calm reset later, I had homing switches chirping in sync.
-
-- **Precision Tuning**  
-  I mounted a laser pointer on the end-effector and drew circles on the wall to measure repeatability. After tweaking belt tension and micro-stepping, I achieved ±0.5 mm accuracy in the XY plane.
-
-## 4. Bringing the Master Arm to Life
-
-To control the behemoth arm more naturally, I built a 1:4 scale “mini-Arctos”:
-
-- **Potentiometer Joints**  
-  Each joint rotates its own 10 kΩ potentiometer, sampled at 10 bit resolution on an Arduino Nano.  
-
-- **Serial Streaming**  
-  At 100 Hz, the Nano streams joint angles over USB to the Mega, which maps them into GRBL’s target buffer—yielding < 50 ms end-to-end latency.
-
-- **Ergonomics & Feedback**  
-  I housed the mini-arm in a 3D-printed pistol grip, added foam grips, and placed tactile detents at every 15° to help my fingers “feel” joint limits.  
-
-Within minutes, I was waving shapes in mid-air and watching the full-scale arm trace my motions. It felt less like robotics and more like magic.
+I wrote my own software to calibration and control the robot arm. At the startup, the robot goes into a calibration mode until it triggers all the hall sensors. I also developed a miniature version of the robot arm with potentiometers that reads the position of each joint and sends a smoothened version of it over bluetooth to the main robot board. This was an interesting process and took some trial and error to get it to work with low latency.
 
 ## 5. Challenges & Lessons Learned
 
-- **Backlash Management:** Tensioners must be fine-tuned per-axis; too loose invites chatter, too tight stalls the motor.  
-- **Cable Routing:** I added 3D-printed cable chains early—those flying wires after 50+ cycles were a liability.  
-- **Thermals:** PLA parts near the base warmed under continuous operation. On v3, I’ll switch to PETG for better heat resistance.
+- **Cable Routing:** has definitely been a major challenge to keep the robot clean-looking, and that's the main reason that I want to migrate to CAN communication. 
+- **Thermals:** The motor drivers can get hot after some use and it took some adjusting to find the right balance between driver and motors heating up and arm performance.
+- **Backlash Management:** One of cyclic gearboxes shows noticable backlash that I haven't been able to fully resolve.
+
 
 ## 6. What’s Next?
 
-- **Closed-Loop Control:** Integrate incremental encoders for sub-0.1 mm positional feedback.  
-- **ROS2 Bridge:** Expose the GRBL interface as a ROS2 node for easy integration with SLAM and vision stacks.  
-- **Haptic Feedback:** Use mini-arm’s potentiometers in reverse—apply torque via vibration motors for real-time force sensation.
+- **Closed-Loop Control:** Upgrade to a Closed-loop stepper motor drive for better performance and cable management.
+- **ROS2 Bridge:** Use ROS2 for easy integration with SLAM and vision stacks.  
+- **Haptic Feedback:** Upgrade the End-of-arm tooling (EOAT) to a design that can grab bigger objects.
 
 ---
 
-Building—then teleoperating—this DIY Arctos arm taught me that open-source robotics can be both accessible and deeply rewarding. If you’re itching to try your own hand at six axes of motion (and maybe a tiny master arm of your own), all my CAD tweaks, firmware patches, and wiring diagrams live on [my GitHub repo](https://github.com/yourusername/arctos-teleop). Happy building!
-::contentReference[oaicite:0]{index=0}
+Building—then teleoperating—this DIY Arctos arm taught me that open-source robotics can be both accessible and deeply rewarding. If you’re itching to try your own hand at six axes of motion (and maybe a tiny master arm of your own) all highly recommand the Arctos project!

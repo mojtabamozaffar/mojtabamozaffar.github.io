@@ -1,7 +1,7 @@
 ---
 title: "Building a Versatile Hexapod: Design, Control, and Mobile Integration"
 tags: ["robotics", "mechatronics", "gait control", "hexapod", "3D printing", "embedded systems", "robot design"]
-date: 2024-08-01
+date: 2024-05-01
 description: "From CAD to code, a full-stack robotics project: building a six-legged robot capable of dynamic walking, standing, sitting, and responsive movement—all controlled via a mobile interface."
 summary: "I designed, built, and programmed a hexapod legged robot from the ground up. The robot features fully custom mechanical and electrical systems, supports multiple gait behaviors, and connects wirelessly to a smartphone for real-time control. This post explores the design process, locomotion capabilities, and key engineering choices."
 cover:
