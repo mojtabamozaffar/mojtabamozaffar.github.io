@@ -1,5 +1,5 @@
 ---
 title: Blog
-# author: ["Mojtaba Mozaffar"]
+author: ["Mojtaba Mozaffar"]
 description: blog
 ---
