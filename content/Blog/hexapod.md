@@ -31,6 +31,8 @@ The hexapod supports multiple gaits and actions including:
 - **Turning in Place**: Rotate without displacement using synchronized limb adjustments
 - **Tilting and Height Control**: Adapt body posture by dynamically changing leg positions
 
+<img src="/dofy_moves.gif" width="800">
+
 The gait planner uses inverse kinematics to calculate precise servo positions in real time, allowing the robot to smoothly navigate its environment.
 
 ### 3. **Mobile App Integration**

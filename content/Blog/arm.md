@@ -27,11 +27,14 @@ I mirrored the official Arctos wiring harness: motors, drivers, endstops, fans w
   - Homing: Magnetic Hall sensor at each axis
   - Communication: A bluetooth module to receive commmands
 
+  <img src="/arm_3.jpg" width="400">
+
 ## Software
+
+I wrote my own software to calibration and control the robot arm. At the startup, the robot goes into a calibration mode until it triggers all the hall sensors. I also developed a miniature version of the robot arm with potentiometers that reads the position of each joint and sends a smoothened version of it over bluetooth to the main robot board. This was an interesting process and took some trial and error to get it to work with low latency.
 
 <img src="/arm_2.jpg" width="800">
 
-I wrote my own software to calibration and control the robot arm. At the startup, the robot goes into a calibration mode until it triggers all the hall sensors. I also developed a miniature version of the robot arm with potentiometers that reads the position of each joint and sends a smoothened version of it over bluetooth to the main robot board. This was an interesting process and took some trial and error to get it to work with low latency.
 
 ## 5. Challenges & Lessons Learned
 
